@@ -1,24 +1,21 @@
 import { useEffect, useState } from "react";
 import { Spot } from "./Spot";
-
-const spots = [
-  { id: "1", name: "mama dut", dateVisited: null },
-  { id: "2", name: "taco bell", dateVisited: null },
-];
+import { SpotType } from "./types/common";
+import { YUMYUMCLUB_BASE_URL } from "./Constants";
 
 export const Spots = () => {
-  const [text, setText] = useState("");
+  const [spots, setSpots] = useState([]);
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch("https://yumyumclub-api.netlify.app/");
+      const response = await fetch(`${YUMYUMCLUB_BASE_URL}/?visited=false`);
       const results = await response.json();
-      setText(results[0].name);
+      setSpots(results);
     }
     fetchData();
   }, []);
   return (
     <div className="Spots">
-      {spots.map((spot) => {
+      {spots.map((spot: SpotType) => {
         return <Spot spot={spot} />;
       })}
     </div>
