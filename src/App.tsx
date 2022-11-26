@@ -1,33 +1,31 @@
-import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Selector } from "./Selector";
+import { Spots } from "./Spots";
+import { Visited } from "./Visited";
 import "./App.css";
 
-function App() {
-  const [text, setText] = useState("");
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch("https://yumyumclub-api.netlify.app");
-      const result = await response.json();
-      setText(result.hello);
-    }
-    fetchData();
-  }, []);
+export const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>{text}</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>yumyumclub</p>
+        <nav>
+          <a href="/spots">Spots To Visit</a> | <a href="/selector">Select</a> |
+          <a href="/visited">Spots Visited</a>
+        </nav>
       </header>
+      <BrowserRouter>
+        <div>
+          <Routes>
+            <Route path={`/`} element={<Spots />} />
+            <Route path={`/spots`} element={<Spots />} />
+            <Route path={`/selector`} element={<Selector />} />
+            <Route path={`/visited`} element={<Visited />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
