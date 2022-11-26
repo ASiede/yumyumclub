@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { Spot } from "./Spot";
 
 const spots = [
-  { name: "mama dut", dateVisited: null },
-  { name: "taco bell", dateVisited: null },
+  { id: "1", name: "mama dut", dateVisited: null },
+  { id: "2", name: "taco bell", dateVisited: null },
 ];
 
 export const Spots = () => {
