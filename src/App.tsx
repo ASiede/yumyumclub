@@ -8,10 +8,17 @@ export const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <p>yumyumclub</p>
-        <nav>
-          <a href="/spots">Spots To Visit</a> | <a href="/selector">Select</a> |
-          <a href="/visited">Spots Visited</a>
+        <p>YUMYUMCLUB</p>
+        <nav className="nav">
+          <a className="nav-link" href="/spots">
+            Spots To Visit
+          </a>
+          <a className="nav-link" href="/selector">
+            Select
+          </a>
+          <a className="nav-link" href="/visited">
+            Spots Visited
+          </a>
         </nav>
       </header>
       <BrowserRouter>
