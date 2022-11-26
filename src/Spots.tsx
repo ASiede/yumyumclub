@@ -1,5 +1,10 @@
-import React, { useEffect, useState } from "react";
-import "./App.css";
+import { useEffect, useState } from "react";
+import { Spot } from "./Spot";
+
+const spots = [
+  { name: "mama dut", dateVisited: null },
+  { name: "taco bell", dateVisited: null },
+];
 
 export const Spots = () => {
   const [text, setText] = useState("");
@@ -11,7 +16,13 @@ export const Spots = () => {
     }
     fetchData();
   }, []);
-  return <div className="Spots">{text}</div>;
+  return (
+    <div className="Spots">
+      {spots.map((spot) => {
+        return <Spot spot={spot} />;
+      })}
+    </div>
+  );
 };
 
 export default Spots;
