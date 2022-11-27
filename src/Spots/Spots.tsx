@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-bind */
 import React, { useEffect, useState } from "react";
-import { Spot } from "../Spot";
+import { Spot } from "../Spot/Spot";
 import { SpotType } from "../types/common";
 import { YUMYUMCLUB_BASE_URL } from "../Constants";
 import "./Spots.css";

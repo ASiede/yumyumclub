@@ -1,4 +1,4 @@
-import { SpotType } from "./types/common";
+import { SpotType } from "../types/common";
 
 export const Spot = ({ spot }: { spot: SpotType }) => {
   return (
