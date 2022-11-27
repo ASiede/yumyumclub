@@ -70,10 +70,10 @@ export const Spots = () => {
           </button>
         </div>
       </form>
-      <div className="Spots">
-        {spots.map((spot: SpotType) => {
-          return <Spot spot={spot} />;
-        })}
+      <div className="spots">
+        {spots.map((spot: SpotType, index) => (
+          <Spot key={`spot-${index}`} spot={spot} />
+        ))}
       </div>
     </div>
   );
