@@ -10,7 +10,6 @@ export const Visited = () => {
       const response = await fetch(`${YUMYUMCLUB_BASE_URL}/?visited=true`);
       const results = await response.json();
       SetVisitedSpots(results);
-      console.log({ results });
     }
     fetchData();
   }, []);

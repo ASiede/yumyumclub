@@ -1,7 +1,7 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { Selector } from "./Selector";
-import { Spots } from "./Spots/Spots";
-import { Visited } from "./Visited/Visited";
+import { Selector } from "../Choose/Choose";
+import { Spots } from "../Spots/Spots";
+import { Visited } from "../Visited/Visited";
 import "./App.css";
 
 export const App = () => {
