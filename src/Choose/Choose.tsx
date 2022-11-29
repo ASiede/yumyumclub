@@ -1,11 +1,13 @@
 /* eslint-disable react/jsx-no-bind */
 import { useEffect, useState } from "react";
-import { YUMYUMCLUB_BASE_URL } from "../Constants";
+import { useNavigate } from "react-router-dom";
+import { Endpoint, YUMYUMCLUB_BASE_URL } from "../Constants";
 import "./Choose.css";
 
 export const Selector = () => {
+  const navigate = useNavigate();
   const [spots, setSpots] = useState([]);
-  const [randomSpot, setRandomSpot] = useState({ name: "" });
+  const [randomSpot, setRandomSpot] = useState({ name: "", _id: "" });
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(`${YUMYUMCLUB_BASE_URL}/?visited=false`);
@@ -20,8 +22,19 @@ export const Selector = () => {
     setRandomSpot(randomSpot);
   };
 
-  const onGoClickHandler = () => {
-    console.log("lets go!");
+  const onGoClickHandler = async () => {
+    try {
+      await fetch(`${YUMYUMCLUB_BASE_URL}/?id=${randomSpot._id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ dateVisited: Date.now() }),
+      });
+      navigate(`/${Endpoint.VISITED}`);
+    } catch (e) {
+      console.log({ e });
+    }
   };
 
   return (
