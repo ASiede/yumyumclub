@@ -8,7 +8,7 @@ declare global {
 }
 
 interface SpotType {
-  id: string;
+  _id: string;
   name: string;
   dateVisited?: Date | null;
 }

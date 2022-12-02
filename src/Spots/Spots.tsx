@@ -1,8 +1,10 @@
 /* eslint-disable react/jsx-no-bind */
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Spot } from "../Spot/Spot";
 import { SpotType } from "../types/common";
 import { YUMYUMCLUB_BASE_URL } from "../Constants";
+import { addSpot, getSpots } from "../actions";
 import "./Spots.css";
 
 const clearInput = () => {
@@ -13,13 +15,15 @@ const clearInput = () => {
 };
 
 export const Spots = () => {
-  const [spots, setSpots] = useState([]);
+  const spots = useSelector((state: any) => state.spots.spotsToVisit);
   const [spotName, setSpotName] = useState("");
+  const dispatch = useDispatch();
+
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(`${YUMYUMCLUB_BASE_URL}/?visited=false`);
       const results = await response.json();
-      setSpots(results);
+      dispatch(getSpots(results));
     }
     fetchData();
   }, []);
@@ -34,8 +38,8 @@ export const Spots = () => {
       },
       body: JSON.stringify(spot),
     });
-    const result = await response.json();
-    setSpots(spots.concat(result));
+    const newSpot = await response.json();
+    dispatch(addSpot(newSpot));
     setSpotName("");
     clearInput();
   };
@@ -71,7 +75,7 @@ export const Spots = () => {
         </div>
       </form>
       <div className="spots">
-        {spots.map((spot: SpotType, index) => (
+        {spots.map((spot: SpotType, index: any) => (
           <Spot key={`spot-${index}`} spot={spot} />
         ))}
       </div>
