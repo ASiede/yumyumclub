@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-bind */
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Endpoint, YUMYUMCLUB_BASE_URL } from "../Constants";
+import { Endpoint, YUMYUMCLUB_BASE_URL } from "../../Constants";
 import "./Choose.css";
 
 export const Selector = () => {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { YUMYUMCLUB_BASE_URL } from "../Constants";
-import { SpotType } from "../types/common";
+import { YUMYUMCLUB_BASE_URL } from "../../Constants";
+import { SpotType } from "../../types/common";
 import { VisitedSpot } from "../VisitedSpot/VisitedSpot";
 
 export const Visited = () => {

@@ -1,4 +1,4 @@
-import { SpotType } from "../types/common";
+import { SpotType } from "../../types/common";
 
 const convertTime = (epochTime: any) =>
   new Date(epochTime).toLocaleDateString();

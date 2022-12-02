@@ -1,6 +1,6 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { Selector } from "../Choose/Choose";
-import { Endpoint } from "../Constants";
+import { Endpoint } from "../../Constants";
 import { Spots } from "../Spots/Spots";
 import { Visited } from "../Visited/Visited";
 import "./App.css";

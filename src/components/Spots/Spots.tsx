@@ -2,9 +2,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Spot } from "../Spot/Spot";
-import { SpotType } from "../types/common";
-import { YUMYUMCLUB_BASE_URL } from "../Constants";
-import { addSpot, getSpots } from "../actions";
+import { SpotType } from "../../types/common";
+import { YUMYUMCLUB_BASE_URL } from "../../Constants";
+import { addSpot, getSpots } from "../../actions";
 import "./Spots.css";
 
 const clearInput = () => {

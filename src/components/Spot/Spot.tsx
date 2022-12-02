@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-no-bind */
 import { useDispatch } from "react-redux";
-import { removeSpot } from "../actions";
-import { YUMYUMCLUB_BASE_URL } from "../Constants";
-import { SpotType } from "../types/common";
+import { removeSpot } from "../../actions";
+import { YUMYUMCLUB_BASE_URL } from "../../Constants";
+import { SpotType } from "../../types/common";
 
 export const Spot = ({ spot }: { spot: SpotType }) => {
   const dispatch = useDispatch();
