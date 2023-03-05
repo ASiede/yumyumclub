@@ -1,14 +1,14 @@
 /* eslint-disable react/jsx-no-bind */
 import { useDispatch } from "react-redux";
 import { removeSpot } from "../../actions";
-import { YUMYUMCLUB_BASE_URL } from "../../Constants";
 import { SpotType } from "../../types/common";
+import { getBaseUrl } from "../../utils/utils";
 
 export const Spot = ({ spot }: { spot: SpotType }) => {
   const dispatch = useDispatch();
   const onDeleteClick = async () => {
     try {
-      const response = await fetch(`${YUMYUMCLUB_BASE_URL}/?id=${spot._id}`, {
+      const response = await fetch(`${getBaseUrl()}/?id=${spot._id}`, {
         method: "DELETE",
       });
       const { _id } = await response.json();

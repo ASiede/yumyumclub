@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-no-bind */
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Endpoint, YUMYUMCLUB_BASE_URL } from "../../Constants";
+import { Endpoint } from "../../Constants";
+import { getBaseUrl } from "../../utils/utils";
 import "./Choose.css";
 
 export const Selector = () => {
@@ -10,7 +11,7 @@ export const Selector = () => {
   const [randomSpot, setRandomSpot] = useState({ name: "", _id: "" });
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(`${YUMYUMCLUB_BASE_URL}/?visited=false`);
+      const response = await fetch(`${getBaseUrl()}/?visited=false`);
       const results = await response.json();
       setSpots(results);
     }
@@ -24,7 +25,7 @@ export const Selector = () => {
 
   const onGoClickHandler = async () => {
     try {
-      await fetch(`${YUMYUMCLUB_BASE_URL}/?id=${randomSpot._id}`, {
+      await fetch(`${getBaseUrl()}/?id=${randomSpot._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
