@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Spot } from "../Spot/Spot";
 import { SpotType } from "../../types/common";
-import { YUMYUMCLUB_BASE_URL } from "../../Constants";
 import { addSpot, getSpots } from "../../actions";
 import "./Spots.css";
+import { getBaseUrl } from "../../utils/utils";
 
 const clearInput = () => {
   const input = document.getElementById("name") as HTMLInputElement;
@@ -21,7 +21,7 @@ export const Spots = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(`${YUMYUMCLUB_BASE_URL}/?visited=false`);
+      const response = await fetch(`${getBaseUrl()}/?visited=false`);
       const results = await response.json();
       dispatch(getSpots(results));
     }
@@ -31,7 +31,7 @@ export const Spots = () => {
   const addSpotButtonHanlder = async () => {
     if (!spotName) return;
     const spot = { name: spotName };
-    const response = await fetch(YUMYUMCLUB_BASE_URL, {
+    const response = await fetch(getBaseUrl(), {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

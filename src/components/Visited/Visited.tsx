@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import { YUMYUMCLUB_BASE_URL } from "../../Constants";
 import { SpotType } from "../../types/common";
+import { getBaseUrl } from "../../utils/utils";
 import { VisitedSpot } from "../VisitedSpot/VisitedSpot";
 
 export const Visited = () => {
   const [visitedSpots, SetVisitedSpots] = useState([]);
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(`${YUMYUMCLUB_BASE_URL}/?visited=true`);
+      const response = await fetch(`${getBaseUrl()}/?visited=true`);
       const results = await response.json();
       SetVisitedSpots(results);
     }
